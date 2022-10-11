@@ -159,6 +159,8 @@ def clean_player_biographical(player_bio):
     player_bio["Height(cm)"] = player_bio["Height(cm)"].astype("Int64")
     player_bio["Weight(kg)"] = player_bio["Weight(kg)"].astype("Int64")
 
+    # Reformats birthdates to be in the yyyy-mm-dd notation
+    player_bio["Birthday"] = player_bio["Birthday"].str[-4:] + "-" + player_bio["Birthday"].str[3:5] + "-" + player_bio["Birthday"].str[:2]
     return player_bio
 
 
