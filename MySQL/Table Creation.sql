@@ -1,15 +1,15 @@
--- DROP TABLE players;
--- DROP TABLE forward_statistics;
--- DROP TABLE midfielder_statistics;
--- DROP TABLE defender_statistics;
--- DROP TABLE goalie_statistics;
+DROP TABLE forward_statistics;
+DROP TABLE midfielder_statistics;
+DROP TABLE defender_statistics;
+DROP TABLE goalie_statistics;
+DROP TABLE players;
 
 CREATE TABLE players (
 player_id INT NOT NULL UNIQUE,
 player_name VARCHAR(255) NOT NULL,
 player_position VARCHAR(255) NOT NULL,
 player_nationality VARCHAR(255) NOT NULL, 
-player_birthday VARCHAR(255) NULL,
+player_birthday DATE NULL,
 player_height_cm INT NULL,
 player_weight_kg INT NUll,
 PRIMARY KEY (player_id)
@@ -132,7 +132,9 @@ LOAD DATA LOCAL INFILE 'C:\\Users\\1rodg\\PycharmProjects\\epl-players\\venv\\CS
 INTO TABLE players
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\r\n'
-IGNORE 1 ROWS;
+IGNORE 1 ROWS
+(player_id, player_name, player_position, player_nationality, @date_var, player_height_cm, player_weight_kg)
+SET player_birthday = str_to_date(@date_var, '%Y-%m-%d');
 
 LOAD DATA LOCAL INFILE 'C:\\Users\\1rodg\\PycharmProjects\\epl-players\\venv\\CSV Files\\attacker_stats.csv'
 INTO TABLE forward_statistics
