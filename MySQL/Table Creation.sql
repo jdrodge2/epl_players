@@ -3,6 +3,14 @@ DROP TABLE midfielder_statistics;
 DROP TABLE defender_statistics;
 DROP TABLE goalie_statistics;
 DROP TABLE players;
+DROP TABLE end_of_season;
+
+
+CREATE TABLE end_of_season (
+season VARCHAR(255) NOT NULL,
+season_end DATE NOT NULL UNIQUE,
+PRIMARY KEY (season)
+);
 
 CREATE TABLE players (
 player_id INT NOT NULL UNIQUE,
@@ -39,7 +47,8 @@ player_big_chances_missed INT NOT NULL,
 player_big_chances_created INT NOT NULL,
 player_tackles INT NOT NULL,
 player_offsides INT NOT NULL,
-FOREIGN KEY (player_id) REFERENCES players(player_id)
+FOREIGN KEY (player_id) REFERENCES players(player_id),
+FOREIGN KEY (player_season) REFERENCES end_of_season(season)
 );
 
 CREATE TABLE midfielder_statistics (
@@ -72,7 +81,8 @@ player_successful_50_50 INT NOT NULL,
 player_aerial_battles_won INT NOT NULL,
 player_aerial_battles_lost INT NOT NULL,
 player_offsides INT NOT NULL,
-FOREIGN KEY (player_id) REFERENCES players(player_id)
+FOREIGN KEY (player_id) REFERENCES players(player_id),
+FOREIGN KEY (player_season) REFERENCES end_of_season(season)
 );
 
 CREATE TABLE defender_statistics (
@@ -102,7 +112,8 @@ player_aerial_battles_won INT NOT NULL,
 player_aerial_battles_lost INT NOT NULL,
 player_clean_sheets INT NOT NULL,
 player_offsides INT NOT NULL,
-FOREIGN KEY (player_id) REFERENCES players(player_id)
+FOREIGN KEY (player_id) REFERENCES players(player_id),
+FOREIGN KEY (player_season) REFERENCES end_of_season(season)
 );
 
 CREATE TABLE goalie_statistics (
@@ -125,8 +136,14 @@ player_goals_conceded INT NOT NULL,
 player_clean_sheets INT NOT NULL,
 player_saves INT NOT NULL,
 player_penalties_saved INT NOT NULL,
-FOREIGN KEY (player_id) REFERENCES players(player_id)
+FOREIGN KEY (player_id) REFERENCES players(player_id),
+FOREIGN KEY (player_season) REFERENCES end_of_season(season)
 );
+
+INSERT INTO end_of_season VALUES ('2021/2022', '2022-05-22');
+INSERT INTO end_of_season VALUES ('2020/2021', '2021-05-23');
+INSERT INTO end_of_season VALUES ('2019/2020', '2020-07-26');
+INSERT INTO end_of_season VALUES ('2018/2019', '2019-05-12');
 
 LOAD DATA LOCAL INFILE 'C:\\Users\\1rodg\\PycharmProjects\\epl-players\\venv\\CSV Files\\player_biographical.csv'
 INTO TABLE players
