@@ -38,7 +38,7 @@ Lastly there is the `Visualizations` directory which includes:
    * A power Bi file that I created to capture 3 different visualizations
 * `Visuals_screen_captures` - A brief powerpoint showing static versions of the visualizations created in the power Bi file.
    * The First slide shows a pie chart of how player nationalities in the EPL are broken down followed by a world map of where majority of players come from
-   * The Second slide shows the Top attackers in the EPL based on the data collected for individual wins, goals, big chances created and assists. I used sum for this over Average to favor players who were recorded in all 4 seasons collected.
+   * The Second slide shows the Top attackers in the EPL based on the data collected for individual wins, goals, big chances created and assists. I used sum for this over average to favor players who were recorded in all 4 seasons collected.
    * The Last slide depicts whether there is a correlation between the age of players and the average number of misconducts brought against and individual of that age in any given season.
 
 
