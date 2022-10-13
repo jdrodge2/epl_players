@@ -45,6 +45,9 @@ JOIN end_of_season AS es
 ON gs.player_season = es.season
 WHERE gs.player_appearances > 0;
 
+SELECT * FROM player_misconduct; -- exported this to player_misconduct.csv
+
+-- exported this to player_total_misconduct.csv
 SELECT player_id, player_name, player_position, SUM(player_yellow_cards) AS sum_yellow_cards, SUM(player_red_cards) AS sum_red_cards, SUM(player_fouls) AS player_fouls, COUNT(player_id) AS seasons_played
 FROM player_misconduct
 GROUP BY player_id, player_name, player_position
