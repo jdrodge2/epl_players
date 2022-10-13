@@ -23,8 +23,8 @@ All of the CSV files that I created for this project can be found in the `CSV Fi
    * `midfielder_stats` - cleaned statistical data separated out for Midfielders
    * `goalie_stats` - cleaned statistical data separated out for Goalies
  * The last two csv files were created using SQL queries
-   * `player_misconduct` - stores information regarding the players age as well as the total amount of fouls, yellow & red cards players have recieved across all seasons captured
-   * `player_season_avg_misconduct` - used the previous csv file to show the aveage amount of misconducts individual players recieve on a seasonly basis
+   * `player_misconduct` - stores information regarding the players age as well as the total amount of fouls, yellow cards and red cards players have recieved for each season captured
+   * `player_total_misconduct` - used the previous csv file to show a sum of each players misconducts across all seasons captured
 
 Next there is the `MySQL` directory which includes:
 * `Table Creation`
@@ -39,7 +39,7 @@ Lastly there is the `Visualizations` directory which includes:
 * `Visuals_screen_captures` - A brief powerpoint showing static versions of the visualizations created in the power Bi file.
    * The First slide shows a pie chart of how player nationalities in the EPL are broken down followed by a world map of where majority of players come from
    * The Second slide shows the Top attackers in the EPL based on the data collected for individual wins, goals, big chances created and assists. I used sum for this over Average to favor players who were recorded in all 4 seasons collected.
-   * The Last slide depicts whether there is a correlation between the age of a player and the average number of misconducts brought against them in any given season.
+   * The Last slide depicts whether there is a correlation between the age of players and the average number of misconducts brought against and individual of that age in any given season.
 
 
 ## Conclusion
